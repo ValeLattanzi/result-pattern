@@ -1,17 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-
 namespace result_pattern;
 
-public static class ApiResults
-{
-	public static ProblemDetails Problem(Result result)
-	{
+public static class ApiResults {
+	public static ProblemDetails Problem(Result result) {
 		if (result.IsSuccess)
 			throw new InvalidOperationException();
-		var problemDetails = new ProblemDetails
-		{
+		var problemDetails = new ProblemDetails {
 			Title = GetTitle(result.Error),
 			Detail = GetDetail(result.Error),
 			Type = GetType(result.Error.Type),
@@ -19,18 +15,14 @@ public static class ApiResults
 		};
 
 		var errors = GetErrors(result);
-		if (errors is not null)
-			foreach (var (key, value) in errors)
-			{
-				problemDetails.Detail += ("errors", value);
-			}
+		if (errors is null) return problemDetails;
+		foreach (var (key, value) in errors)
+			problemDetails.Detail += ("errors", value);
 		return problemDetails;
 	}
 
-	private static string GetTitle(Error error)
-	{
-		return error.Type switch
-		{
+	private static string GetTitle(Error error) {
+		return error.Type switch {
 			ErrorType.BadRequest => error.Code,
 			ErrorType.Validation => error.Code,
 			ErrorType.NotFound => error.Code,
@@ -41,10 +33,8 @@ public static class ApiResults
 		};
 	}
 
-	private static string GetDetail(Error error)
-	{
-		var descriptionHeader = error.Type switch
-		{
+	private static string GetDetail(Error error) {
+		var descriptionHeader = error.Type switch {
 			ErrorType.BadRequest => error.Description,
 			ErrorType.Validation => error.Description,
 			ErrorType.NotFound => error.Description,
@@ -56,10 +46,8 @@ public static class ApiResults
 		return descriptionHeader;
 	}
 
-	private static string GetType(ErrorType type)
-	{
-		return type switch
-		{
+	private static string GetType(ErrorType type) {
+		return type switch {
 			ErrorType.BadRequest => "https://tools.ietf.org/html/rfc7231#section-6.5.1",
 			ErrorType.Validation => "https://tools.ietf.org/html/rfc7231#section-6.5.1",
 			ErrorType.NotFound => "https://tools.ietf.org/html/rfc7231#section-6.5.4",
@@ -70,10 +58,8 @@ public static class ApiResults
 		};
 	}
 
-	private static int GetStatusCode(Error error)
-	{
-		return error.Type switch
-		{
+	private static int GetStatusCode(Error error) {
+		return error.Type switch {
 			ErrorType.BadRequest => StatusCodes.Status400BadRequest,
 			ErrorType.Validation => StatusCodes.Status400BadRequest,
 			ErrorType.NotFound => StatusCodes.Status404NotFound,
@@ -84,12 +70,10 @@ public static class ApiResults
 		};
 	}
 
-	private static Dictionary<string, object>? GetErrors(Result result)
-	{
+	private static Dictionary<string, object>? GetErrors(Result result) {
 		if (result.Error is not ValidationError validationError) return null;
 
-		return new Dictionary<string, object>
-		{
+		return new() {
 			{ "errors", validationError.Errors.ToArray() }
 		};
 	}

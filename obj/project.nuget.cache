@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5kuUBzqD3CI=",
+  "dgSpecHash": "cxl66SmlzzQ=",
   "success": true,
   "projectFilePath": "/home/valentino/Documentos/Proyectos/shared-libs/result-pattern/result-pattern.csproj",
   "expectedPackageFiles": [
@@ -76,5 +76,16 @@
     "/home/valentino/.nuget/packages/system.xml.readerwriter/4.0.11/system.xml.readerwriter.4.0.11.nupkg.sha512",
     "/home/valentino/.nuget/packages/system.xml.xdocument/4.0.11/system.xml.xdocument.4.0.11.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Newtonsoft.Json' 9.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr",
+      "libraryId": "Newtonsoft.Json",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
 }
