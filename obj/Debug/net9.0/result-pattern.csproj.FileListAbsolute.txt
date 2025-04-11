@@ -27,7 +27,6 @@ C:\SharedLibs\ResultPattern\obj\Debug\net9.0\ref\result-pattern.dll
 C:\SharedLibs\result-pattern\bin\Debug\net9.0\result-pattern.deps.json
 C:\SharedLibs\result-pattern\bin\Debug\net9.0\result-pattern.dll
 C:\SharedLibs\result-pattern\bin\Debug\net9.0\result-pattern.pdb
-C:\SharedLibs\result-pattern\obj\Debug\net9.0\result-pattern.csproj.AssemblyReference.cache
 C:\SharedLibs\result-pattern\obj\Debug\net9.0\result-pattern.GeneratedMSBuildEditorConfig.editorconfig
 C:\SharedLibs\result-pattern\obj\Debug\net9.0\result-pattern.AssemblyInfoInputs.cache
 C:\SharedLibs\result-pattern\obj\Debug\net9.0\result-pattern.AssemblyInfo.cs
