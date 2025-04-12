@@ -1,7 +1,6 @@
 /home/valentino/Documentos/Proyectos/shared-libs/result-pattern/bin/Debug/net9.0/result-pattern.deps.json
 /home/valentino/Documentos/Proyectos/shared-libs/result-pattern/bin/Debug/net9.0/result-pattern.dll
 /home/valentino/Documentos/Proyectos/shared-libs/result-pattern/bin/Debug/net9.0/result-pattern.pdb
-/home/valentino/Documentos/Proyectos/shared-libs/result-pattern/obj/Debug/net9.0/result-pattern.csproj.AssemblyReference.cache
 /home/valentino/Documentos/Proyectos/shared-libs/result-pattern/obj/Debug/net9.0/result-pattern.GeneratedMSBuildEditorConfig.editorconfig
 /home/valentino/Documentos/Proyectos/shared-libs/result-pattern/obj/Debug/net9.0/result-pattern.AssemblyInfoInputs.cache
 /home/valentino/Documentos/Proyectos/shared-libs/result-pattern/obj/Debug/net9.0/result-pattern.AssemblyInfo.cs

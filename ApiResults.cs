@@ -3,7 +3,7 @@
 namespace result_pattern;
 
 public static class ApiResults {
-  public static object problem(Result result) {
+  public static ProblemDetail problem(Result result) {
     if (result.IsSuccess)
       throw new InvalidOperationException();
     var problemDetails = new ProblemDetail {

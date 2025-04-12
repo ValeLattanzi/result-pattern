@@ -35,7 +35,7 @@ public static class ResultExtensions {
     return result;
   }
 
-  public static object toProblemDetails(this Result result) {
+  public static ProblemDetail toProblemDetails(this Result result) {
     return ApiResults.problem(result);
   }
 }
