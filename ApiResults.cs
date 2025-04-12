@@ -13,12 +13,12 @@ public static class ApiResults {
       Status = getStatusCode(result.Error)
     };
 
-    var errors = getErrors(result);
-    if (errors is null) return problemDetails;
-    foreach (var (key, value) in errors)
-      problemDetails.Detail += ("errors", JsonSerializer.Serialize((key, value)));
-    return problemDetails;
-  }
+        var errors = getErrors(result);
+        if (errors is null) return problemDetails;
+        foreach (var (key, value) in errors)
+            problemDetails.Detail += ("errors", JsonSerializer.Serialize((key, value)));
+        return problemDetails;
+    }
 
   private static string getTitle(Error error) {
     return error.Type switch {
@@ -32,18 +32,18 @@ public static class ApiResults {
     };
   }
 
-  private static string getDetail(Error error) {
-    var descriptionHeader = error.Type switch {
-      ErrorType.BadRequest => error.Description,
-      ErrorType.Validation => error.Description,
-      ErrorType.NotFound => error.Description,
-      ErrorType.Conflict => error.Description,
-      ErrorType.Unauthorized => error.Description,
-      ErrorType.Forbidden => error.Description,
-      _ => "An error occurred while processing your request."
-    };
-    return descriptionHeader;
-  }
+    private static string getDetail(Error error) {
+        var descriptionHeader = error.Type switch {
+            ErrorType.BadRequest => error.Description,
+            ErrorType.Validation => error.Description,
+            ErrorType.NotFound => error.Description,
+            ErrorType.Conflict => error.Description,
+            ErrorType.Unauthorized => error.Description,
+            ErrorType.Forbidden => error.Description,
+            _ => "An error occurred while processing your request."
+        };
+        return descriptionHeader;
+    }
 
   private static string getType(ErrorType type) {
     return type switch {
@@ -69,11 +69,11 @@ public static class ApiResults {
     };
   }
 
-  private static Dictionary<string, object>? getErrors(Result result) {
-    if (result.Error is not ValidationError validationError) return null;
+    private static Dictionary<string, object>? getErrors(Result result) {
+        if (result.Error is not ValidationError validationError) return null;
 
-    return new() {
+        return new() {
       { "errors", validationError.Errors.ToArray() }
     };
-  }
+    }
 }
